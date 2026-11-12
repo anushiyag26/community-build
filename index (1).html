@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Community Hub – a place for neighbours to share posts, meet members and stay connected." />
+  <title>Community Hub</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Community Hub home">
+        <img src="assets/logo.svg" alt="" width="32" height="32" />
+        <span>Community Hub</span>
+      </a>
+
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#posts">Posts</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#messages">Messages</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" type="button"
+                aria-label="Toggle dark mode" aria-pressed="false">
+          <span aria-hidden="true" id="theme-icon">🌙</span>
+        </button>
+        <button id="menu-toggle" class="icon-btn menu-btn" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="container">
+        <h1>Stronger together, <span class="accent">one neighbour at a time.</span></h1>
+        <p class="lead">Share updates, discover local events and connect with the people around you.</p>
+        <a class="btn btn-primary" href="#join">Become a member</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Why join?</h2>
+        <div class="grid features">
+          <article class="card">
+            <h3>Share</h3>
+            <p>Post updates, ask for help and celebrate local wins.</p>
+          </article>
+          <article class="card">
+            <h3>Meet</h3>
+            <p>Find events and members who share your interests.</p>
+          </article>
+          <article class="card">
+            <h3>Support</h3>
+            <p>Volunteer, donate or simply lend a hand when needed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="posts" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Community posts</h2>
+          <label class="search">
+            <span class="sr-only">Search posts</span>
+            <input id="search" type="search" placeholder="Search posts…" autocomplete="off" />
+          </label>
+        </div>
+        <p id="posts-status" class="status" role="status" aria-live="polite">Loading posts…</p>
+        <div id="cards" class="grid cards"></div>
+        <div class="center">
+          <button id="load-more" class="btn" type="button" hidden>Load more</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="section">
+      <div class="container narrow">
+        <h2>Join the community</h2>
+        <form id="join-form" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required
+                   aria-describedby="name-error" />
+            <p id="name-error" class="error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   aria-describedby="email-error" />
+            <p id="email-error" class="error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel"
+                   aria-describedby="phone-error" />
+            <p id="phone-error" class="error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required
+                      aria-describedby="message-error"></textarea>
+            <p id="message-error" class="error" role="alert"></p>
+          </div>
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="messages" class="section section-alt">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2>Your message history</h2>
+          <button id="clear-history" class="btn btn-ghost" type="button">Clear</button>
+        </div>
+        <ul id="history" class="history" aria-live="polite"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Community Hub · Web Technology (25CS208)</p>
+    </div>
+  </footer>
+</body>
+</html>
